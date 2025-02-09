@@ -162,7 +162,7 @@ npm install bcrypt
     // Store the hashedPassword in the database
     });
 
-8. Avoiding SQL Injection
+## 8. Avoiding SQL Injection
 `Use parameterized queries or ORM libraries (like Sequelize or Mongoose) to avoid SQL injection.`
 
 Example using Sequelize:
