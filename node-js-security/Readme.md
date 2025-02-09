@@ -129,16 +129,16 @@ npm install jsonwebtoken
 
     // Middleware to verify JWT token
     function authenticateJWT(req, res, next) {
-    const token = req.header('Authorization')?.split(' ')[1];
-    if (!token) {
-        return res.status(403).send('Access Denied');
-    }
+        const token = req.header('Authorization')?.split(' ')[1];
+        if (!token) {
+            return res.status(403).send('Access Denied');
+        }
     
-    jwt.verify(token, 'your_secret_key', (err, user) => {
-        if (err) return res.sendStatus(403);
-        req.user = user;
-        next();
-    });
+        jwt.verify(token, 'your_secret_key', (err, user) => {
+            if (err) return res.sendStatus(403);
+            req.user = user;
+            next();
+        });
     }
 
     // Protect a route
