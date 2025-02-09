@@ -117,14 +117,14 @@ npm install jsonwebtoken
     const jwt = require('jsonwebtoken');
 
     app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-    
-    // Validate user credentials (e.g., compare with database)
-    
-    // Generate JWT token
-    const token = jwt.sign({ userId: 123 }, 'your_secret_key', { expiresIn: '1h' });
+        const { username, password } = req.body;
+        
+        // Validate user credentials (e.g., compare with database)
+        
+        // Generate JWT token
+        const token = jwt.sign({ userId: 123 }, 'your_secret_key', { expiresIn: '1h' });
 
-    res.json({ token });
+        res.json({ token });
     });
 
     // Middleware to verify JWT token
@@ -143,7 +143,7 @@ npm install jsonwebtoken
 
     // Protect a route
     app.get('/protected', authenticateJWT, (req, res) => {
-    res.send('This is a protected route');
+        res.send('This is a protected route');
     });
 
 ## 7. Password Hashing
@@ -157,10 +157,10 @@ npm install bcrypt
     const bcrypt = require('bcrypt');
 
     app.post('/signup', async (req, res) => {
-    const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    
-    // Store the hashedPassword in the database
+        const { username, password } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        
+        // Store the hashedPassword in the database
     });
 
 ## 8. Avoiding SQL Injection
@@ -187,14 +187,14 @@ Example using Sequelize:
     const session = require('express-session');
 
     app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        httpOnly: true,   // Prevent JavaScript access to cookie
-        secure: process.env.NODE_ENV === 'production', // Use secure cookies only in production
-        sameSite: 'Strict',  // Prevent cross-site request forgery
-    }
+        secret: 'your-secret-key',
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            httpOnly: true,   // Prevent JavaScript access to cookie
+            secure: process.env.NODE_ENV === 'production', // Use secure cookies only in production
+            sameSite: 'Strict',  // Prevent cross-site request forgery
+        }
     }));
 
 ## 10. Content Security Policy (CSP)
@@ -203,11 +203,11 @@ Example using Sequelize:
 Example with Helmet:
 
     app.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://trusted-cdn.com"],
-        styleSrc: ["'self'", "https://trusted-cdn.com"]
-    }
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "https://trusted-cdn.com"],
+            styleSrc: ["'self'", "https://trusted-cdn.com"]
+        }
     }));
 
 ## 11. Logging and Monitoring
@@ -221,15 +221,15 @@ npm install winston
     const winston = require('winston');
 
     const logger = winston.createLogger({
-    transports: [
-        new winston.transports.Console(),
-        new winston.transports.File({ filename: 'combined.log' })
-    ]
+        transports: [
+            new winston.transports.Console(),
+            new winston.transports.File({ filename: 'combined.log' })
+        ]
     });
 
     app.use((req, res, next) => {
-    logger.info(`${req.method} ${req.url}`);
-    next();
+        logger.info(`${req.method} ${req.url}`);
+        next();
     });
 
 ## 12. Use Security Libraries to Prevent XSS
@@ -256,13 +256,13 @@ npm audit fix
 `Example:`
 
     if (process.env.NODE_ENV === 'production') {
-    app.use((err, req, res, next) => {
-        res.status(500).send('Internal Server Error');
-    });
-    } else {
-    app.use((err, req, res, next) => {
-        res.status(500).send(err.stack);
-    });
+        app.use((err, req, res, next) => {
+            res.status(500).send('Internal Server Error');
+        });
+        } else {
+        app.use((err, req, res, next) => {
+            res.status(500).send(err.stack);
+        });
     }
 
 ## Conclusion:
