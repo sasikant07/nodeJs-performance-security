@@ -63,7 +63,8 @@ npm install cors
         allowedHeaders: 'Content-Type,Authorization'
     };
 
-app.use(cors(corsOptions));
+    app.use(cors(corsOptions));
+
 ## 4. Rate Limiting
 
 `Limit the number of requests a client can make to prevent DoS (Denial of Service) attacks.`
@@ -82,7 +83,7 @@ npm install express-rate-limit
         max: 100,  // Limit each IP to 100 requests per window
     });
 
-app.use(limiter);
+    app.use(limiter);
 
 ## 5. Input Validation & Sanitization
 `Sanitize and validate all user inputs to prevent injection attacks (SQL injection, NoSQL injection, XSS).`
@@ -183,18 +184,18 @@ Example using Sequelize:
 
 `Example:`
 
-const session = require('express-session');
+    const session = require('express-session');
 
-app.use(session({
-  secret: 'your-secret-key',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    httpOnly: true,   // Prevent JavaScript access to cookie
-    secure: process.env.NODE_ENV === 'production', // Use secure cookies only in production
-    sameSite: 'Strict',  // Prevent cross-site request forgery
-  }
-}));
+    app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,   // Prevent JavaScript access to cookie
+        secure: process.env.NODE_ENV === 'production', // Use secure cookies only in production
+        sameSite: 'Strict',  // Prevent cross-site request forgery
+    }
+    }));
 
 ## 10. Content Security Policy (CSP)
 `Define a Content Security Policy to mitigate the risk of XSS attacks.`
