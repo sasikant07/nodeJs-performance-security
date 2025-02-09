@@ -38,7 +38,7 @@
 
 `Installation:`
 
-npm install helmet
+    npm install helmet
 `Example:`
 
     const helmet = require('helmet');
@@ -51,7 +51,7 @@ npm install helmet
 
 `Installation:`
 
-npm install cors
+    npm install cors
 `Example:`
 
     const cors = require('cors');
@@ -71,7 +71,7 @@ npm install cors
 
 `Installation:`
 
-npm install express-rate-limit
+    npm install express-rate-limit
 `Example:`
 
     const rateLimit = require('express-rate-limit');
@@ -90,7 +90,7 @@ npm install express-rate-limit
 
 `Installation:`
 
-npm install express-validator
+    npm install express-validator
 `Example:`
 
     const { body, validationResult } = require('express-validator');
@@ -109,9 +109,11 @@ npm install express-validator
 ## 6. Authentication & Authorization
 `Use strong authentication mechanisms (JWT, OAuth) and make sure only authorized users can access protected routes.`
 
-JWT Authentication `Example:`
+`JWT Authentication`
 
-npm install jsonwebtoken
+`Installation:`
+
+    npm install jsonwebtoken
 `Example:`
 
     const jwt = require('jsonwebtoken');
@@ -151,7 +153,8 @@ npm install jsonwebtoken
 
 `Installation:`
 
-npm install bcrypt
+    npm install bcrypt
+
 `Example:`
 
     const bcrypt = require('bcrypt');
@@ -166,7 +169,7 @@ npm install bcrypt
 ## 8. Avoiding SQL Injection
 `Use parameterized queries or ORM libraries (like Sequelize or Mongoose) to avoid SQL injection.`
 
-Example using Sequelize:
+`Example using Sequelize:`
 
     const { User } = require('./models');
 
@@ -200,7 +203,7 @@ Example using Sequelize:
 ## 10. Content Security Policy (CSP)
 `Define a Content Security Policy to mitigate the risk of XSS attacks.`
 
-Example with Helmet:
+`Example with Helmet:`
 
     app.use(helmet.contentSecurityPolicy({
         directives: {
@@ -213,9 +216,9 @@ Example with Helmet:
 ## 11. Logging and Monitoring
 `Implement logging and monitoring to track unusual activity and potential attacks.`
 
-Example with Winston:
+`Example with Winston:`
 
-npm install winston
+    npm install winston
 `Example:`
 
     const winston = require('winston');
@@ -237,7 +240,7 @@ npm install winston
 
 `Installation:`
 
-npm install xss-clean
+    npm install xss-clean
 `Example:`
 
     const xssClean = require('xss-clean');
@@ -248,7 +251,7 @@ npm install xss-clean
 
 `Example:`
 
-npm audit fix
+    npm audit fix
 
 ## 14. Avoid Exposing Stack Traces
 `Don't expose detailed stack traces in production environments to prevent attackers from exploiting errors.`
