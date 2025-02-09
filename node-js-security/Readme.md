@@ -1,4 +1,4 @@
-# 1. Secure your Node.js App
+# Secure your Node.js App
 
 `-> Data Validation`
 
